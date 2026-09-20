@@ -1,0 +1,64 @@
+<!--
+    Copyright (C) 2023-2026 Lion-A Softwares
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://gnu.org>.
+
+
+
+    2023-2026 Mister Cobalt,
+    WAC-MAN English - An web port of BANDAI NAMCO's PAC-MAN
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WAC-MAN</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hud">
+  <div><span class="k">SCORE</span><span id="score">0</span></div>
+  <div><span class="k">HIGH SCORE</span><span id="hi">0</span></div>
+  <div><span class="k">LEVEL</span><span id="lvl">1</span></div>
+  <div><span class="k">LIVES</span><span id="lives" class="lives"></span></div>
+</div>
+
+<canvas id="c" width="456" height="504" aria-label="WACMAN game board"></canvas>
+
+<div class="ctl">
+  <div class="seg" role="group" aria-label="Difficulty">
+    <button data-diff="easy" aria-pressed="false">EASY</button>
+    <button data-diff="normal" aria-pressed="true">NORMAL</button>
+    <button data-diff="hard" aria-pressed="false">HARD</button>
+  </div>
+  <button id="snd" aria-pressed="true">SOUND: ON</button>
+</div>
+
+<div class="pad" aria-label="Direction buttons">
+  <button class="up" data-d="up" aria-label="Up">▲</button>
+  <button class="left" data-d="left" aria-label="Left">◀</button>
+  <button class="down" data-d="down" aria-label="Down">▼</button>
+  <button class="right" data-d="right" aria-label="Right">▶</button>
+</div>
+<div class="hint">ARROW KEYS / WASD: move &nbsp; SPACE: start &nbsp; P: pause &nbsp; M: sound<br>Difficulty can only be changed before a game</div>
+
+<script src="script.js"></script>
+</body>
+</html>

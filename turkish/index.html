@@ -1,0 +1,69 @@
+<!--
+    Copyright (C) 2023-2026 Lion-A Softwares
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://gnu.org>.
+
+
+
+    2023-2026 Mister Cobalt,
+    WAC-MAN Turkce - BANDAI NAMCO'nun PAC-MAN'inin bir web portu
+-->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WAC-MAN Türkçe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="hud">
+  <div><span class="k">PUAN</span><span id="score">0</span></div>
+  <div><span class="k">REKOR</span><span id="hi">0</span></div>
+  <div><span class="k">SEVİYE</span><span id="lvl">1</span></div>
+  <div><span class="k">CAN</span><span id="lives" class="lives"></span></div>
+</div>
+
+<canvas id="c" width="456" height="504" aria-label="WACMAN oyun alanı"></canvas>
+
+<div class="ctl">
+  <div class="seg" role="group" aria-label="Zorluk">
+    <button data-diff="easy" aria-pressed="false">KOLAY</button>
+    <button data-diff="normal" aria-pressed="true">NORMAL</button>
+    <button data-diff="hard" aria-pressed="false">ZOR</button>
+  </div>
+  <button id="snd" aria-pressed="true">SES: AÇIK</button>
+</div>
+
+<div class="pad" aria-label="Yön tuşları">
+  <button class="up" data-d="up" aria-label="Yukarı">▲</button>
+  <button class="left" data-d="left" aria-label="Sol">◀</button>
+  <button class="down" data-d="down" aria-label="Aşağı">▼</button>
+  <button class="right" data-d="right" aria-label="Sağ">▶</button>
+</div>
+<div class="hint">OK TUŞLARI / WASD: hareket &nbsp; BOŞLUK: başlat &nbsp; P: duraklat &nbsp; M: ses<br>Zorluk yalnızca oyun başında değiştirilebilir</div>
+
+<script src="script.js"></script>
+</body>
+</html>

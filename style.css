@@ -1,0 +1,114 @@
+/*
+    Copyright (C) 2023-2026 Lion-A Softwares
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://gnu.org>.
+
+
+
+    2023-2026 Mister Cobalt,
+    WAC-MAN English - An web port of BANDAI NAMCO's PAC-MAN
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  --bg: #000000;
+  --text: #f4f4f4;
+  --dim: #8b8bb0;
+  --pac: #ffe100;
+  --wall: #2b2bff;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { height: 100%; scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Press Start 2P", ui-monospace, Menlo, Consolas, monospace;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.hud {
+  width: min(100%, 456px);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.hud > div { display: flex; flex-direction: column; gap: 8px; }
+.k { font-size: 8px; color: var(--dim); }
+.hud span:not(.k) { font-size: 12px; min-height: 14px; }
+.lives { display: flex; gap: 4px; }
+.life {
+  width: 14px; height: 14px; border-radius: 50%;
+  background: conic-gradient(var(--pac) 0 240deg, transparent 240deg 300deg, var(--pac) 300deg);
+}
+canvas {
+  display: block;
+  width: min(100%, 456px);
+  width: min(100%, 456px, calc((100dvh - 300px) * 0.905));
+  aspect-ratio: 456 / 504;
+  touch-action: none;
+  background: #000;
+  border-radius: 6px;
+}
+.pad { display: none; grid-template-columns: repeat(3, 64px); grid-template-rows: repeat(2, 56px); gap: 6px; }
+.pad button {
+  border: 2px solid var(--wall);
+  background: #0a0a3a;
+  color: var(--pac);
+  font: inherit;
+  font-size: 18px;
+  border-radius: 10px;
+  touch-action: manipulation;
+}
+.pad button:active { background: var(--wall); }
+.pad button:focus-visible { outline: 2px solid var(--pac); outline-offset: 2px; }
+.pad .up { grid-column: 2; grid-row: 1; }
+.pad .left { grid-column: 1; grid-row: 2; }
+.pad .down { grid-column: 2; grid-row: 2; }
+.pad .right { grid-column: 3; grid-row: 2; }
+.hint { font-size: 8px; color: var(--dim); text-align: center; line-height: 1.8; max-width: 456px; }
+.ctl { width: min(100%, 456px); display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap; }
+.seg { display: flex; gap: 4px; }
+.ctl button {
+  font: inherit; font-size: 8px; color: var(--text); background: #0a0a3a;
+  border: 2px solid var(--wall); border-radius: 8px; padding: 9px 8px;
+  touch-action: manipulation; cursor: pointer;
+}
+.ctl button[aria-pressed="true"] { background: var(--pac); color: #000; border-color: var(--pac); }
+.ctl button:disabled { opacity: .45; cursor: default; }
+.ctl button:disabled[aria-pressed="true"] { opacity: .85; }
+.ctl button:focus-visible { outline: 2px solid var(--pac); outline-offset: 2px; }
+@media (pointer: coarse) { .pad { display: grid; } .hint { display: none; } }
